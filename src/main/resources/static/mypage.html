@@ -1,0 +1,17 @@
+<!doctype html>
+<html lang="ko">
+<head><meta charset="utf-8"><title>마이페이지</title></head>
+<body>
+  <h1>마이페이지</h1>
+  <div id="box">/auth/me 확인 중...</div>
+
+  <script>
+    fetch('/auth/me', { credentials: 'include' })
+      .then(r => r.ok ? r.json() : Promise.reject())
+      .then(me => {
+        document.getElementById('box').innerText = me.name + '님 안녕하세요 (role=' + me.role + ')';
+      })
+      .catch(() => location.href='/login.html');
+  </script>
+</body>
+</html>
