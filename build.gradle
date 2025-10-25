@@ -19,10 +19,10 @@ configurations {
         extendsFrom annotationProcessor
     }
 }
-
-repositories {
-    mavenCentral()
-}
+//
+//repositories {
+//    mavenCentral()
+//}
 
 dependencies {
     implementation 'org.springframework.boot:spring-boot-starter-web'
@@ -32,9 +32,13 @@ dependencies {
     testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
 
     //JWT
-    implementation 'io.jsonwebtoken:jjwt-api:0.12.5'
-    runtimeOnly 'io.jsonwebtoken:jjwt-impl:0.15.5'
-    runtimeOnly 'io.jsonwebtoken:jjwt-jackson:0.12.5' //JSON 직렬화
+//    implementation platform("io.jsonwebtoken:jjwt-bom:0.12.5") // 버전을 강제로 통일
+    implementation 'io.jsonwebtoken:jjwt-api:0.11.5'
+    runtimeOnly files('libs/jjwt-impl-0.11.5.jar') // 레포지토리 우회
+    runtimeOnly 'io.jsonwebtoken:jjwt-jackson:0.11.5' //JSON 직렬화
+
+    //SECURITY
+    implementation 'org.springframework.boot:spring-boot-starter-security'
 }
 
 tasks.named('test') {
