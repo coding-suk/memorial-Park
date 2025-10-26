@@ -1,13 +1,15 @@
-package com.example.memorialpark.security.jwt;
+package com.example.memorialpark.common.security.jwt;
 
 import io.jsonwebtoken.*;
 import io.jsonwebtoken.security.Keys;
+import org.springframework.context.annotation.Bean;
 
 import java.nio.charset.StandardCharsets;
 import java.security.Key;
 import java.time.Instant;
 import java.util.Date;
 import java.util.Map;
+
 
 public class JwtUtil {
 

@@ -1,4 +1,4 @@
-package com.example.memorialpark.security.jwt;
+package com.example.memorialpark.common.security.jwt;
 
 import jakarta.servlet.FilterChain;
 import jakarta.servlet.ServletException;
@@ -31,6 +31,8 @@ public class JwtAuthFilter extends OncePerRequestFilter {
                 p.startsWith("/auth/") ||
                         p.equals("/") ||
                         p.equals("/login.html") ||
+                        p.startsWith("/login/oauth2/code/") ||
+                        p.startsWith("/oauth2") ||
                         p.equals("/mypage.html") ||
                         p.equals("/adminpage.html") ||
                         matcher.match("/**/*.css", p) ||
