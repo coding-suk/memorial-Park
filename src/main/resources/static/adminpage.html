@@ -1,0 +1,27 @@
+<!doctype html>
+<html lang="ko">
+<head><meta charset="utf-8"><title>관리자</title></head>
+<body>
+<h1>관리자 페이지</h1>
+<div id="status"></div>
+<table border="1" id="t">
+    <thead><tr><th>ID</th><th>Name</th><th>Role</th></tr></thead>
+    <tbody></tbody>
+</table>
+<script>
+    fetch('/admin/ping', {credentials:'include'})
+        .then(r => {
+            if (!r.ok) throw new Error('권한없음');
+            return r.json();
+        })
+        .then(j => document.getElementById('status').innerText = '접근 OK: ' + JSON.stringify(j))
+        .then(() => fetch('/admin/users', {credentials:'include'}))
+        .then(r => r.json())
+        .then(list => {
+            const tb = document.querySelector('#t tbody');
+            tb.innerHTML = list.map(u=>`<tr><td>${u.id}</td><td>${u.name}</td><td>${u.role}</td></tr>`).join('');
+        })
+        .catch(() => document.getElementById('status').innerText = '403: 관리자만 접근 가능');
+</script>
+</body>
+</html>
