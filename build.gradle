@@ -19,10 +19,10 @@ configurations {
         extendsFrom annotationProcessor
     }
 }
-//
-//repositories {
-//    mavenCentral()
-//}
+
+repositories {
+    mavenCentral()
+}
 
 dependencies {
     implementation 'org.springframework.boot:spring-boot-starter-web'

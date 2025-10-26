@@ -1,1 +1,15 @@
+//pluginManagement {
+//    repositories {
+//        gradlePluginPortal()
+//        mavenCentral()
+//    }
+//}
+//
+//dependencyResolutionManagement {
+//    repositoriesMode.set(RepositoriesMode.FAIL_ON_PROJECT_REPOS)
+//    repositories {
+//        mavenCentral()      // ★ 이게 없으면 의존성 못 받음
+//    }
+//}
+
 rootProject.name = 'memorialPark'
